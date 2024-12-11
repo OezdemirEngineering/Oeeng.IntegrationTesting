@@ -16,6 +16,7 @@ public class AccessorBase
     private Point _location;
     public Bitmap ParentBitmap { private set; get; }
     public readonly  AutomationElement Parent;
+    public AutomationElement Element { get; }
     public AccessorBase(AutomationElement parent, string automationId, int timeout = 200)
     {
         Element = parent.FindFirstDescendant(
@@ -45,7 +46,7 @@ public class AccessorBase
     }
 
 
-    public AutomationElement Element { get; }
+
 
     protected void Click()
     {
