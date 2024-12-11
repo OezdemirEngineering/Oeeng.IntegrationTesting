@@ -10,6 +10,9 @@ using System.Drawing.Imaging;
 
 namespace Accessor.Base.Utils;
 
+
+// Alernative solution, haar cascades
+// or Deep Learning like (Tensorflow) 
 public static class ImageRecoginitionUtil
 {
     private static Mat BitmapToMat(Bitmap bitmap)

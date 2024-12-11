@@ -18,9 +18,9 @@ internal class ButtonAccessor:AccessorBase
 {
     private Bitmap _buttonPressedBitmap;
 
-    public ButtonAccessor(AutomationElement parent, string automationId, Bitmap buttonPressedBitmap=null) : base(parent, automationId)
+    public ButtonAccessor(AutomationElement parent, string automationId) : base(parent, automationId)
     {
-        _buttonPressedBitmap = buttonPressedBitmap;
+
     }
 
     public ButtonAccessor(AutomationElement parent, string name, ControlType type, Bitmap buttonPressedBitmap = null) : base(parent, name, type)

@@ -25,16 +25,17 @@ public class AccessorsTests
         var app = FlaUI.Core.Application.Attach(process);
         var mainWindow = app.GetMainWindow(automation).WaitUntilEnabled(new TimeSpan(0, 0, 0, 0, 100));
 
-        var usernameBox = mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("UsernameBox")).AsTextBox();
-        var passwordBox = mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("PasswordBox")).AsTextBox();
+        var usernameBox = new TextBoxAccessor(mainWindow, "UsernameBox");
+        var passwordBox = new TextBoxAccessor(mainWindow, "PasswordBox");
         var loginButton1 = new ButtonAccessor(mainWindow, "LoginButton");
-        var loginButton2 = new ButtonAccessor(mainWindow, new Bitmap(".\\Images\\LoginButton.png"));
-        var loginButton3 = new ButtonAccessor(mainWindow, "Login", ControlType.Button, new Bitmap(".\\Images\\LoginButtonPressed.png"));
+        //var loginButton2 = new ButtonAccessor(mainWindow, new Bitmap(".\\Images\\LoginButton.png"));
+        //var loginButton3 = new ButtonAccessor(mainWindow, "Login", ControlType.Button, new Bitmap(".\\Images\\LoginButtonPressed.png"));
 
         // Act.
         usernameBox.Text = "admin";
         passwordBox.Text = "password";
-        var pushed = loginButton3.CLickWithFeedback();
+        
+        loginButton1.Click();
 
 
         // Assert
