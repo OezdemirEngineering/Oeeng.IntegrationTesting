@@ -13,12 +13,18 @@ using Tests.Accessors;
 
 namespace Tests;
 
+/// <summary>
+/// Contains tests for the accessors used in the application.
+/// </summary>
 public class AccessorsTests
 {
+    /// <summary>
+    /// Tests that the login process navigates to the dashboard.
+    /// </summary>
     [Fact]
     public void Login_ShouldNavigateToDashboard()
     {
-        // Arrange: WPF-Anwendung starten
+        // Arrange: Start the WPF application
         var process = Process.Start("Login.exe");
 
         var automation = new UIA3Automation();
@@ -31,12 +37,11 @@ public class AccessorsTests
         //var loginButton2 = new ButtonAccessor(mainWindow, new Bitmap(".\\Images\\LoginButton.png"));
         //var loginButton3 = new ButtonAccessor(mainWindow, "Login", ControlType.Button, new Bitmap(".\\Images\\LoginButtonPressed.png"));
 
-        // Act.
+        // Act
         usernameBox.Text = "admin";
         passwordBox.Text = "password";
-        
-        loginButton1.Click();
 
+        loginButton1.Click();
 
         // Assert
         mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("DashBoard")).WaitUntilEnabled();
