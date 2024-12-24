@@ -269,4 +269,27 @@ public partial class MainWindow : System.Windows.Window
     {
         LoadActionsFromFile();
     }
+
+    private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show(
+    "Oezdemir Engineering (OEENG)\n\n" +
+    "Email: info@oeeng.de\n" +
+    "Phone: +49 163 340 5013\n" +
+    "Website: www.oeeng.de\n\n" +
+    "Address:\n" +
+    "Oezdemir Engineering\n" +
+    "Brünestraße 23\n" +
+    "52531 Übach-Palenberg, Germany",
+    "Information",
+    MessageBoxButton.OK,
+    MessageBoxImage.Information);
+    }
+
+    private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
+
+
 }
