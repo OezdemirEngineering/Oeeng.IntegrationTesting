@@ -35,18 +35,20 @@ public class NativeWindowsAutomationUiTest
             {
                 ((ValuePattern)usernamePattern).SetValue("admin");
             }
+            Thread.Sleep(2000);
 
             if (passwordBox.TryGetCurrentPattern(ValuePattern.Pattern, out var passwordPattern))
             {
                 ((ValuePattern)passwordPattern).SetValue("password");
             }
+            Thread.Sleep(2000);
 
             if (loginButton.TryGetCurrentPattern(InvokePattern.Pattern, out var loginPattern))
             {
                 ((InvokePattern)loginPattern).Invoke();
             }
 
-            Thread.Sleep(1000); // Warten, bis die Aktion abgeschlossen ist
+            Thread.Sleep(2000); // Warten, bis die Aktion abgeschlossen ist
 
             var dashboardPanel = mainWindow.FindFirst(TreeScope.Descendants,
                 new PropertyCondition(AutomationElement.AutomationIdProperty, "DashBoard"));
